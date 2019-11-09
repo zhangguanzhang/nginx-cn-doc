@@ -2,8 +2,8 @@
 
 本文介绍如何安装开源的nginx
 
-* \*\*\*\*[**选择Stable或者Mainline版本**](installing-nginx-open-source.md#choosing-between-a-stable-or-a-mainline-version)\*\*\*\*
-* [**选择包管理器\(预构建包\)和源码编译**](installing-nginx-open-source.md#choosing-between-a-prebuilt-package-and-compiling-from-source)
+* \*\*\*\*[选择Stable或者Mainline版本](installing-nginx-open-source.md#choosing-between-a-stable-or-a-mainline-version)
+* [选择包管理器\(预构建包\)和源码编译](installing-nginx-open-source.md#choosing-between-a-prebuilt-package-and-compiling-from-source)
 * [Installing a Prebuilt Package](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt)
   * [Modules Included in a Prebuilt Package](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt_modules)
   * [Installing Prebuilt CentOS and RHEL Packages](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt_redhat)
@@ -40,7 +40,7 @@
 
 ### Installing a Prebuilt Package
 
-Installing NGINX open source from a package is much easier and faster than building from source, but building from source enables you to compile in non-standard modules. Prebuilt packages are available for most popular Linux distributions, including CentOS, Debian, Red Hat Enterprise Linux \(RHEL\), SUSE Linux Enterprise Server \(SLES\), and Ubuntu. See [Linux packages](https://nginx.org/en/linux_packages.html) at **nginx.org** for the list of currently supported operating systems.
+从包管理安装开源NGINX比从源代码构建要容易和快捷得多，但是从源代码构建使您可以在非标准模块中进行编译。 预构建的软件包可用于大多数流行的Linux发行版，包括CentOS，Debian，Red Hat Enterprise Linux（RHEL），SUSE Linux Enterprise Server（SLES）和Ubuntu。 有关当前支持的操作系统的列表，请参见nginx.org上的Linux软件包。
 
 #### Modules Included in a Prebuilt Package
 
