@@ -4,7 +4,7 @@
 
 * \*\*\*\*[选择Stable或者Mainline版本](installing-nginx-open-source.md#choosing-between-a-stable-or-a-mainline-version)
 * [选择包管理器\(预构建包\)和源码编译](installing-nginx-open-source.md#choosing-between-a-prebuilt-package-and-compiling-from-source)
-* [Installing a Prebuilt Package](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt)
+* [从包管理安装](installing-nginx-open-source.md#installing-a-prebuilt-package)
   * [Modules Included in a Prebuilt Package](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt_modules)
   * [Installing Prebuilt CentOS and RHEL Packages](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt_redhat)
   * [Installing Prebuilt Debian Packages](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt_debian)
