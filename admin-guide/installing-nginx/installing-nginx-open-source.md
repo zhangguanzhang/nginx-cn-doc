@@ -2,8 +2,8 @@
 
 本文介绍如何安装开源的nginx
 
-* \*\*\*\*[**选择Stable或者Mainline版本**](https://app.gitbook.com/@zhangguanzhang-1/s/nginx-docs/~/edit/drafts/-Lrm0wnZvXfFTTbcg_20/admin/installing-nginx/installing-nginx-open-source#choosing-between-a-stable-or-a-mainline-version)\*\*\*\*
-* [Choosing Between a Prebuilt Package and Compiling from Source](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#compile_vs_package)
+* \*\*\*\*[**选择Stable或者Mainline版本**](installing-nginx-open-source.md#choosing-between-a-stable-or-a-mainline-version)\*\*\*\*
+* [**选择包管理器\(预构建包\)和源码编译**](installing-nginx-open-source.md#choosing-between-a-prebuilt-package-and-compiling-from-source)
 * [Installing a Prebuilt Package](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt)
   * [Modules Included in a Prebuilt Package](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt_modules)
   * [Installing Prebuilt CentOS and RHEL Packages](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt_redhat)
