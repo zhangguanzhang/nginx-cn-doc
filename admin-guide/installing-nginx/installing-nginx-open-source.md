@@ -2,27 +2,27 @@
 
 本文介绍如何安装开源的nginx
 
-* \*\*\*\*[选择Stable或者Mainline版本](installing-nginx-open-source.md#choosing-between-a-stable-or-a-mainline-version)
+* [选择Stable或者Mainline版本](installing-nginx-open-source.md#choosing-between-a-stable-or-a-mainline-version)
 * [选择包管理器\(预构建包\)和源码编译](installing-nginx-open-source.md#choosing-between-a-prebuilt-package-and-compiling-from-source)
 * [从包管理安装](installing-nginx-open-source.md#installing-a-prebuilt-package)
-  * [Modules Included in a Prebuilt Package](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt_modules)
-  * [Installing Prebuilt CentOS and RHEL Packages](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt_redhat)
-  * [Installing Prebuilt Debian Packages](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt_debian)
-  * [Installing Prebuilt Ubuntu Packages](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt_ubuntu)
-  * [Installing SUSE Packages](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt_suse)
-  * [Installing Alpine Linux Packages](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt_alpine)
-* [Compiling and Installing from Source](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#sources)
-  * [Installing NGINX Dependencies](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#dependencies)
-  * [Downloading the Sources](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#sources_download)
-  * [Configuring the Build Options](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#configure)
-    * [Configuring NGINX Paths](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#configure_paths)
-    * [Configuring NGINX GCC Options](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#configure_gcc)
-    * [Specifying NGINX Connection Processing Methods](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#configure_methods)
-    * [Selecting the NGINX Modules to Build](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#modules)
-    * [Modules Built by Default](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#modules_default)
-    * [Including Modules Not Built by Default](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#modules_not_default)
-    * [Including Third-Party Modules](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#modules_third_party)
-  * [Completing the Installation from Source](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#install_complete)
+  * [包管理中包含的模块](installing-nginx-open-source.md#modules-included-in-a-prebuilt-package)
+  * [在CentOS和RHEL上使用包管理安装](installing-nginx-open-source.md#installing-prebuilt-centos-and-rhel-packages)
+  * [Installing Prebuilt Debian Packages](installing-nginx-open-source.md#prebuilt_debian)
+  * [Installing Prebuilt Ubuntu Packages](installing-nginx-open-source.md#prebuilt_ubuntu)
+  * [Installing SUSE Packages](installing-nginx-open-source.md#prebuilt_suse)
+  * [Installing Alpine Linux Packages](installing-nginx-open-source.md#prebuilt_alpine)
+* [从源码编译安装](installing-nginx-open-source.md#compiling-and-installing-from-source)
+  * [安装编译nginx的依赖](installing-nginx-open-source.md#dependencies)
+  * [下载源码](installing-nginx-open-source.md#configuring-the-build-options)
+  * [配置构建选项](installing-nginx-open-source.md#configuring-the-build-options)
+    * [配置nginx相关PATH](installing-nginx-open-source.md#configuring-nginx-paths)
+    * [配置nginx的gcc选项](installing-nginx-open-source.md#configuring-nginx-gcc-options)
+    * [指定NGINX连接处理的方法](installing-nginx-open-source.md#configure_methods)
+    * [选择模块来构建NGINX](installing-nginx-open-source.md#modules)
+    * [默认构建的模块](installing-nginx-open-source.md#modules_default)
+    * [默认情况下不构建的模块](installing-nginx-open-source.md#modules_not_default)
+    * [引入第三方模块](installing-nginx-open-source.md#modules_third_party)
+  * [从源码完成安装](installing-nginx-open-source.md#install_complete)
 
 ### 选择Stable或者Mainline版本 <a id="choosing-between-a-stable-or-a-mainline-version"></a>
 
@@ -35,20 +35,20 @@
 
 无论是**Stable**还是**Mainline**版本无非是以下两种安装方式:
 
-* 预构建包: 简单快速安装开源nginx的方式. 几乎包含了所有主流的官方模块，可用于大多数流行的操作系统. See [Installing a Prebuilt Package](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#prebuilt).
-* 从源码编译: 这种方式更灵活：您可以添加特定模块，包括第三方模块，或应用最新的安全补丁. See [Compiling and Installing from Source](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#sources) for details.
+* 预构建包: 简单快速安装开源nginx的方式. 几乎包含了所有主流的官方模块，可用于大多数流行的操作系统. See [Installing a Prebuilt Package](installing-nginx-open-source.md#prebuilt).
+* 从源码编译: 这种方式更灵活：您可以添加特定模块，包括第三方模块，或应用最新的安全补丁. See [Compiling and Installing from Source](installing-nginx-open-source.md#sources) for details.
 
-### Installing a Prebuilt Package
+### 从包管理安装 <a id="installing-a-prebuilt-package"></a>
 
-从包管理安装开源NGINX比从源代码构建要容易和快捷得多，但是从源代码构建使您可以在非标准模块中进行编译。 预构建的软件包可用于大多数流行的Linux发行版，包括CentOS，Debian，Red Hat Enterprise Linux（RHEL），SUSE Linux Enterprise Server（SLES）和Ubuntu。 有关当前支持的操作系统的列表，请参见nginx.org上的Linux软件包。
+从包管理安装开源NGINX比从源代码构建要容易和快捷得多，但是从源代码构建使您可以在非标准模块中进行编译。 预构建的软件包可用于大多数流行的Linux发行版，包括CentOS，Debian，Red Hat Enterprise Linux（RHEL），SUSE Linux Enterprise Server（SLES）和Ubuntu。 有关当前支持的操作系统的列表，请参见[nginx.org](https://nginx.org/en/linux_packages.html?_ga=2.195891113.440084818.1573281842-1746613347.1571715156)上的Linux软件包。
 
-#### Modules Included in a Prebuilt Package
+#### 包管理中包含的模块 <a id="modules-included-in-a-prebuilt-package"></a>
 
-See [Configure Arguments](https://nginx.org/en/linux_packages.html#arguments) at **nginx.org** for the list of modules included in each prebuilt package.
+有关每个预构建软件包中包含的模块列表，请见 **nginx.org** 上的[Configure Arguments](https://nginx.org/en/linux_packages.html#arguments)。
 
-#### Installing Prebuilt CentOS and RHEL Packages
+#### 在CentOS和RHEL上使用包管理安装 <a id="installing-prebuilt-centos-and-rhel-packages"></a>
 
-NGINX, Inc. provides packages for the following CentOS, Oracle Linux, and RHEL versions:
+NGINX，Inc.提供用于以下CentOS，Oracle Linux和RHEL版本的软件包：
 
 | **版本** | **支持的架构** |
 | :--- | :--- |
@@ -56,47 +56,47 @@ NGINX, Inc. provides packages for the following CentOS, Oracle Linux, and RHEL v
 | 7.4+ | x86\_64, ppc64le |
 | 8.x | x86\_64 |
 
-The package can be installed from:
+可以从下列方式安装:
 
-* A default RHEL or CentOS repository. This is the quickest way, but generally the provided package is outdated.
-* The official repo at **nginx.org**. You have to set up the `yum` repository the first time, but after that the provided package is always up to date.
+* 默认的RHEL或CentOS repo库。 这是最快的方法，但是通常提供的软件包已过时。
+* 官方仓库位于 **nginx.org**. 你必须初次手动添加 `yum` repo, 在添加后，后续使用yum安装都是最新的.
 
-**Installing a Prebuilt CentOS/RHEL Package from an OS Repository**
+**在CentOS/RHEL系统自带的repo利用包管理安装** <a id="installing-prebuilt-centos-and-rhel-packages"></a>
 
-1. Install the EPEL repository:
+1. 安装 EPEL repo:
 
    ```text
    $ sudo yum install epel-release
    ```
 
-2. Update the repository:
+2. 更新 repository:
 
    ```text
    $ sudo yum update
    ```
 
-3. Install NGINX open source:
+3. 安装开源NGINX:
 
    ```text
    $ sudo yum install nginx
    ```
 
-4. Verify the installation:
+4. 确认安装:
 
    ```text
    $ sudo nginx -v
    nginx version: nginx/1.6.3
    ```
 
-**Installing a Prebuilt CentOS/RHEL Package from the Official NGINX Repository**
+**添加NGINX官方repo在CentOS/RHEL系统上安装** <a id="installing-a-prebuilt-centos-rhel-package-from-the-official-nginx-repository"></a>
 
-1. Set up the `yum` repository for RHEL or CentOS by creating the file **nginx.repo** in **/etc/yum.repos.d**, for example using `vi`:
+1. 通过在 **/etc/yum.repos.d** 中创建文件 **nginx.repo** 来为RHEL/CentOS设置`yum`的repo库，例如使用`vi`：:
 
    ```text
    $ sudo vi /etc/yum.repos.d/nginx.repo
    ```
 
-2. Add the following lines to **nginx.repo**:
+2. 在文件**nginx.repo**中添加下列内容:
 
    ```text
    [nginx]
@@ -108,11 +108,11 @@ The package can be installed from:
 
    where:
 
-   * The `/mainline` element in the pathname points to the latest mainline version of NGINX open source; delete it to get the latest stable version
-   * `<OS>` is either `rhel` or `centos`
-   * `<OSRELEASE>` is the release number \(`6`, `6._x_`, `7`, `7._x_` and so on\)
+   * baseurl中的 `/mainline` 元素指向NGINX开源的最新mainline版本，如果你想使用stable版本，删除掉该字段即可
+   * `<OS>` 字段可以是 `rhel` 或者 `centos`
+   * `<OSRELEASE>` 可以是 \(`6`, `6._x_`, `7`, `7._x_` and so on\)
 
-     For example, to get the latest mainline package for CentOS 7, insert:
+     例如，要获取用于CentOS 7的最新mainline软件包，:
 
      ```text
      [nginx]
@@ -122,7 +122,7 @@ The package can be installed from:
      enabled=1
      ```
 
-3. Save the changes and quit `vi` \(press ESC and type `wq` at the `:` prompt\).
+3. 保存更改并退出 `vi` \(press ESC and type `wq` at the `:` prompt\).
 4. Update the repository:
 
    ```text
@@ -149,7 +149,7 @@ The package can be installed from:
    Server: nginx/1.13.8
    ```
 
-#### Installing Prebuilt Debian Packages
+#### Installing Prebuilt Debian Packages <a id="prebuilt_debian"></a>
 
 NGINX provides packages for the following Debian operating systems:
 
@@ -208,8 +208,8 @@ The package can be installed from:
 
    where:
 
-   * The `/mainline` element in the pathname points to the latest mainline version of NGINX open source; delete it to get the latest stable version
-   * `<CODENAME>` is the codename of a Debian release
+   * `/mainline` 元素指向NGINX开源的最新mainline版本，如果你想使用stable版本，删除掉该字段即可
+   * `<CODENAME>` 是 Debian release的名字
 
      For example, to get the latest mainline package for Debian 8.2 \(“jessie”\), insert:
 
@@ -241,7 +241,7 @@ The package can be installed from:
    Server: nginx/1.13.8
    ```
 
-#### Installing Prebuilt Ubuntu Packages
+#### Installing Prebuilt Ubuntu Packages <a id="prebuilt_ubuntu"></a>
 
 NGINX provides packages for the following Ubuntu operating systems:
 
@@ -335,7 +335,7 @@ The package can be installed from:
    Server: nginx/1.13.8
    ```
 
-#### Installing SUSE Packages
+#### Installing SUSE Packages <a id="prebuilt_suse"></a>
 
 NGINX provides packages for SUSE Linux Enterprise Server:
 
@@ -358,7 +358,7 @@ $ zypper addrepo -G -t yum -c 'https://nginx.org/packages/mainline/sles/12' ngin
 $ zypper install nginx
 ```
 
-#### Installing Prebuilt Alpine Linux Packages
+#### Installing Prebuilt Alpine Linux Packages <a id="prebuilt_alpine"></a>
 
 NGINX provides packages for the following Alpine Linux operating systems:
 
@@ -456,15 +456,15 @@ The package can be installed from the official repo at **nginx.org**. You have t
    sudo apk add nginx
    ```
 
-### Compiling and Installing from Source
+### 从源码编译安装 <a id="compiling-and-installing-from-source"></a>
 
-Compiling NGINX open source from source affords more flexibility than prebuilt packages: you can add particular modules \(from NGINX or third parties\), and apply latest security patches.
+从源代码编译NGINX开源程序比预编译的软件包具有更大的灵活性：您可以添加特定的模块（来自NGINX或第三方），并应用最新的安全补丁。
 
-#### Installing NGINX Dependencies
+#### 安装编译nginx的依赖 <a id="installing-nginx-dependencies"></a>
 
-Prior to compiling NGINX open source from source, you need to install libraries for its dependencies:
+在从源代码编译NGINX开源之前，您需要安装依赖项的库:
 
-* [PCRE](http://pcre.org/) – Supports regular expressions. Required by the NGINX [Core](https://nginx.org/en/docs/ngx_core_module.html) and [Rewrite](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html) modules.
+* [PCRE](http://pcre.org/) – 支持正则表达式. NGINX [Core](https://nginx.org/en/docs/ngx_core_module.html) and [Rewrite](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html) 模块需要.
 
   ```text
   $ wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.43.tar.gz
@@ -475,7 +475,7 @@ Prior to compiling NGINX open source from source, you need to install libraries 
   $ sudo make install
   ```
 
-* [zlib](https://www.zlib.net/) – Supports header compression. Required by the NGINX [Gzip](https://nginx.org/en/docs/http/ngx_http_gzip_module.html) module.
+* [zlib](https://www.zlib.net/) – 支持http的header压缩. 被NGINX [Gzip](https://nginx.org/en/docs/http/ngx_http_gzip_module.html) 模块需要.
 
   ```text
   $ wget http://zlib.net/zlib-1.2.11.tar.gz
@@ -486,7 +486,7 @@ Prior to compiling NGINX open source from source, you need to install libraries 
   $ sudo make install
   ```
 
-* [OpenSSL](https://www.openssl.org/) – Supports the HTTPS protocol. Required by the NGINX [SSL](https://nginx.org/en/docs/http/ngx_http_ssl_module.html) module and others.
+* [OpenSSL](https://www.openssl.org/) – 支持HTTPS协议. 被NGINX [SSL](https://nginx.org/en/docs/http/ngx_http_ssl_module.html) 模块和一些其他的模块需要.
 
   ```text
   $ wget http://www.openssl.org/source/openssl-1.1.1c.tar.gz
@@ -497,11 +497,11 @@ Prior to compiling NGINX open source from source, you need to install libraries 
   $ sudo make install
   ```
 
-#### Downloading the Sources
+#### 下载源码 <a id="downloading-the-sources"></a>
 
-Download the source files for both the stable and mainline versions from [**nginx.org**](https://www.nginx.org/en/download.html).
+在页面 [**nginx.org**](https://www.nginx.org/en/download.html)可以下载到 `stable` 和 `mainline` 版本
 
-To download and unpack the source for the latest _mainline_ version, run:
+下载并解压最新 `mainline` 版本的源码:
 
 ```text
 $ wget https://nginx.org/download/nginx-1.17.3.tar.gz
@@ -509,7 +509,7 @@ $ tar zxf nginx-1.17.3.tar.gz
 $ cd nginx-1.17.3
 ```
 
-To download and unpack source files for the latest _stable_ version, run:
+下载并解压最新 `stable` 版本的源码:
 
 ```text
 $ wget https://nginx.org/download/nginx-1.16.1.tar.gz
@@ -517,73 +517,73 @@ $ tar zxf nginx-1.16.1.tar.gz
 $ cd nginx-1.16.1
 ```
 
-#### Configuring the Build Options
+#### 配置构建选项 <a id="configuring-the-build-options"></a>
 
-Configure options are specified with the `./configure` script that sets up various NGINX parameters, including paths to source and configuration files, compiler options, connection processing methods, and the list of modules. The script finishes by creating the `Makefile` required to compile the code and install NGINX open source.
+配置选项由 `./configure` 脚本指定，该脚本设置各种NGINX参数，包括源文件和配置文件的路径，编译器选项，连接处理方法以及模块列表。 该脚本通过创建编译代码并安装NGINX开源程序所需的`Makefile`结束。
 
-An example of options to the `configure` script \(should be typed as a single line\):
+下面是一个简单的 `configure` 实例 \(为了方便修改和阅读，一般是利用shell的转义斜线来断成一行行\):
 
 ```text
-$ ./configure
---sbin-path=/usr/local/nginx/nginx
---conf-path=/usr/local/nginx/nginx.conf
---pid-path=/usr/local/nginx/nginx.pid
---with-pcre=../pcre-8.43
---with-zlib=../zlib-1.2.11
---with-http_ssl_module
---with-stream
---with-mail=dynamic
---add-module=/usr/build/nginx-rtmp-module
---add-dynamic-module=/usr/build/3party_module
+$ ./configure \
+  --sbin-path=/usr/local/nginx/nginx \
+  --conf-path=/usr/local/nginx/nginx.conf \
+  --pid-path=/usr/local/nginx/nginx.pid \
+  --with-pcre=../pcre-8.43 \
+  --with-zlib=../zlib-1.2.11 \
+  --with-http_ssl_module \
+  --with-stream \
+  --with-mail=dynamic \
+  --add-module=/usr/build/nginx-rtmp-module \
+  --add-dynamic-module=/usr/build/3party_module \
 ```
 
-**Configuring NGINX Paths**
+**配置nginx相关PATH** <a id="configuring-nginx-paths"></a>
 
-The `configure` script allows you to set paths to NGINX binary and configuration files, and to dependent libraries such as PCRE or SSL, in order to link them statically to the NGINX binary.
+ `configure` 脚本允许您设置NGINX二进制文件和配置文件以及相关库（例如PCRE或SSL）的路径，以便将它们静态链接到NGINX二进制文件。
 
-| **Parameter** | **Description** |
+| **参数** | **描述** |
 | :--- | :--- |
-| `--prefix=<PATH>` | Directory for NGINX files, and the base location for all relative paths set by the other configure script options \(excluding paths to libraries\) and for the path to the **nginx.conf** configuration file. Default: **/usr/local/nginx**. |
-| `--sbin-path=<PATH>` | Name of the NGINX executable file, which is used only during installation. Default: **&lt;prefix&gt;/sbin/nginx** |
-| `--conf-path=<PATH>` | Name of the NGINX configuration file. You can, however, always override this value at startup by specifying a different file with the `-c <FILENAME>` option on the nginx command line. Default: **&lt;prefix&gt;conf/nginx.conf** |
-| `--pid-path=<PATH>` | Name of the **nginx.pid** file, which stores the process ID of the nginx master process. After installation, the path to the filename can be changed with the [pid](https://nginx.org/en/docs/ngx_core_module.html#pid) directive in the NGINX configuration file. Default: **&lt;prefix&gt;/logs/nginx.pid** |
-| `--error-log-path=<PATH>` | Name of the primary log file for errors, warnings, and diagnostic data. After installation, the filename can be changed with the the [error\_log](https://nginx.org/en/docs/ngx_core_module.html#error_log) directive in the NGINX configuration file. Default: **&lt;prefix&gt;/logs/error.log** |
-| `--http-log-path=<PATH>` | Name of the primary log file for requests to the HTTP server. After installation, the filename can always be changed with the [access\_log](https://nginx.org/en/docs/http/ngx_http_log_module.html#access_log) directive in the NGINX configuration file. Default: **&lt;prefix&gt;/logs/access.log** |
-| `--user=<NAME>` | Name of the unprivileged user whose credentials are used by the NGINX worker processes. After installation, the name can be changed with the [user](https://nginx.org/en/docs/ngx_core_module.html#user) directive in the NGINX configuration file. Default: `nobody` |
-| `--group=<NAME>` | Name of the group whose credentials are used by the NGINX worker processes. After installation, the name can be changed with the [user](https://nginx.org/en/docs/ngx_core_module.html#user) directive in the NGINX configuration file. Default: the value set by the `--user` option. |
-| `--with-pcre=<PATH>` | Path to the source for the PCRE library, which is required for regular expressions support in the [location](https://nginx.org/en/docs/http/ngx_http_core_module.html#location) directive and the [Rewrite](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html) module. |
-| `--with-pcre-jit` | Builds the PCRE library with “just-in-time compilation” support \(the [pcre\_jit](https://nginx.org/en/docs/ngx_core_module.html#pcre_jit) directive\). |
-| `--with-zlib=<PATH>` | Path to the source for the zlib library, which is required by the [Gzip](https://nginx.org/en/docs/http/ngx_http_gzip_module.html) module. |
+| `--prefix=<PATH>` | nginx安装在哪个目录, 以及其他配置脚本选项\（不包括库路径\）设置的所有相对路径以及 **nginx.conf** 配置文件路径的基本位置。 默认: **/usr/local/nginx**. |
+| `--sbin-path=<PATH>` | NGINX可执行文件的名称，仅在安装期间使用。 默认: **&lt;prefix&gt;/sbin/nginx** |
+| `--conf-path=<PATH>` | NGINX配置文件的名称。 但是，您可以始终在启动时通过在nginx命令行上使用-c <FILENAME>选项指定其他文件来覆盖此值。 默认: **&lt;prefix&gt;/conf/nginx.conf** |
+| `--pid-path=<PATH>` | 文件 **nginx.pid** 的名字, 用于存储master master进程的进程pid. 在安装后可以通过配置文件来[更改pid文件名的路径](https://nginx.org/en/docs/ngx_core_module.html#pid)。默认: **&lt;prefix&gt;/logs/nginx.pid** |
+| `--error-log-path=<PATH>` | errors, warnings, diagnostic日志文件路径. 在安装后可以通过配置文件来[更改error\_log的路径](https://nginx.org/en/docs/ngx_core_module.html#error_log)。默认: **&lt;prefix&gt;/logs/error.log** |
+| `--http-log-path=<PATH>` | 常规请求日志存放路径. 在安装后可以通过配置文件来[更改access\_log的路径](https://nginx.org/en/docs/http/ngx_http_log_module.html#access_log)。默认: **&lt;prefix&gt;/logs/access.log** |
+| `--user=<NAME>` | NGINX工作进程使用其凭据的非特权用户的名称. 在安装后可以通过配置文件来[更改user](https://nginx.org/en/docs/ngx_core_module.html#user)。默认: `nobody` |
+| `--group=<NAME>` | NGINX工作进程使用的用户组名称. 在安装后可以通过配置文件来[更改user](https://nginx.org/en/docs/ngx_core_module.html#user)。默认: 由 `--user` 选项设置的值. |
+| `--with-pcre=<PATH>` | PCRE源码路径, 正则表达式会在[location](https://nginx.org/en/docs/http/ngx_http_core_module.html#location)和[Rewrite](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html)模块中使用. |
+| `--with-pcre-jit` | 带上pcre的时候带上 `just-in-time compilation` 会支持 \(the [pcre\_jit](https://nginx.org/en/docs/ngx_core_module.html#pcre_jit) directive\). |
+| `--with-zlib=<PATH>` | zlib源码路径, 被[Gzip](https://nginx.org/en/docs/http/ngx_http_gzip_module.html)模块依赖. |
 
-**Configuring NGINX GCC Options**
+**配置nginx的gcc选项** <a id="configuring-nginx-gcc-options"></a>
 
 With the `configure` script you can also specify compiler‑related options.
 
-| **Parameter** | **Description** |
+| **参数** | **描述** |
 | :--- | :--- |
-| `--with-cc-opt="<PARAMETERS>"` | Additional parameters that are added to the `CFLAGS` variable. When using the system PCRE library under FreeBSD, the mandatory value is `--with-cc-opt="-I /usr/local/include"`. If the number of files supported by `select()` needs to be increased, it can also specified here as in this example: `--with-cc-opt="-D FD_SETSIZE=2048"`. |
-| `--with-ld-opt="<PARAMETERS>"` | Additional parameters that are used during linking. When using the system PCRE library under FreeBSD, the mandatory value is `--with-ld-opt="-L /usr/local/lib"`. |
+| `--with-cc-opt="<PARAMETERS>"` | 添加参数到`CFLAGS` 变量里.当在FreeBSD下使用PCRE时必须设置 `--with-cc-opt="-I /usr/local/include"`. 如果需要增加 `select()` 支持的文件数: `--with-cc-opt="-D FD_SETSIZE=2048"`. |
+| `--with-ld-opt="<PARAMETERS>"` | ld链接起见使用的其他参数.当在FreeBSD下使用PCRE时必须设置 `--with-ld-opt="-L /usr/local/lib"`. |
 
-**Specifying NGINX Connection Processing Methods**
+**指定NGINX连接处理的方法** <a id="configure_methods"></a>
 
-With the `configure` script you can redefine the method for event‑based polling. For more information, see [Connection processing methods](https://nginx.org/en/docs/events.html) in the NGINX reference documentation.
+使用`configure`脚本，你可以重新定义基于事件轮询处理连接， 有关更多信息，请参见NGINX参考文档中的[Connection processing methods](https://nginx.org/en/docs/events.html).
 
 | **Module Name** | **Description** |
 | :--- | :--- |
-| `--with-select_module`, `--without-select_module` | Enables or disables building a module that enable NGINX to work with the `select()` method. The modules is built automatically if the platform does not appear to support more appropriate methods such as kqueue, epoll, or /dev/poll. |
-| `--with-poll_module`, `--without-poll_module` | Enables or disables building a module that enables NGINX to work with the `poll()` method. The module is built automatically if the platform does not appear to support more appropriate methods such as kqueue, epoll, or /dev/poll. |
+| `--with-select_module`, `--without-select_module` | 启用或者禁用允许NGINX使用 `select()` 模块. 如果平台似乎不支持更合适的方法(如kqueue、epoll或/dev/poll)，则自动构建模块|
+| `--with-poll_module`, `--without-poll_module` | 启用或禁用构建允许NGINX使用`poll()`模块。如果平台似乎不支持更合适的方法(如kqueue、epoll或/dev/poll)，则自动构建模块。 |
 
-**Selecting the NGINX Modules to Build**
+**选择模块来构建NGINX** <a id="modules"></a>
 
-NGINX consists of a set of function‑specific _modules_, which are specified with `configure` script along with other build options.
+NGINX由一组特定于函数的 *_modules_* 组成，这些 *_modules_* 由`configure`脚本配置构建选项开启。
 
-Some modules are built by default – they do not have to be specified with the `configure` script. Default modules can however be explicitly excluded from the NGINX binary with the `--without-<MODULE-NAME>` option on the `configure` script.
+有些模块是默认构建的，它们不需要通过 `configure` 脚本指定。但是，可以 `--without-<MODULE-NAME>` 选项显式地从NGINX二进制文件中排除默认模块。
 
-Modules not included by default, as well as third‑party modules, must be explicitly specified in the `configure` script together with other build options. Such modules can be linked to NGINX binary either _statically_ \(they are then loaded each time NGINX starts\) or _dynamically_ \(they are loaded only if associated directives are included in the NGINX configuration file.
+默认情况下不包括的模块，以及第三方模块，必须在 `configure` 脚本中与其他构建选项一起显式指定。这些模块可以链接到NGINX二进制文件 _statically_ (然后在每次NGINX启动\时加载它们)或 _dynamically_ (只有当相关的指令包含在NGINX配置文件中时才加载它们)。
 
-**Modules Built by Default**
+**默认构建的模块** <a id="modules_default"></a>
 
-If you do not need a module that is built by default, you can disable it by naming it with the `--without-<MODULE-NAME>` option on the `configure` script, as in this example which disables the [Empty GIF](https://nginx.org/en/docs/http/ngx_http_empty_gif_module.html) module \(should be typed as a single line\):
+如果你不需要一个默认开启的模块, 可以通过在 `configure` 后加名命规则 `--without-<MODULE-NAME>` , 例如关闭 [Empty GIF](https://nginx.org/en/docs/http/ngx_http_empty_gif_module.html) 模块:
 
 ```text
 $ ./configure
@@ -599,40 +599,40 @@ $ ./configure
 
 | **Module Name** | **Description** |
 | :--- | :--- |
-| [http\_access\_module](https://nginx.org/en/docs/http/ngx_http_access_module.html) | Accepts or denies requests from specified client addresses. |
-| [http\_auth\_basic\_module](https://nginx.org/en/docs/http/ngx_http_auth_basic_module.html) | Limits access to resources by validating the user name and password using the HTTP Basic Authentication protocol. |
-| [http\_autoindex\_module](https://nginx.org/en/docs/http/ngx_http_autoindex_module.html) | Processes requests ending with the forward-slash character \(_/_\) and produces a directory listing. |
-| [http\_browser\_module](https://nginx.org/en/docs/http/ngx_http_browser_module.html) | Creates variables whose values depend on the value of the `User-Agent` request header. |
-| [http\_charset\_module](https://nginx.org/en/docs/http/ngx_http_charset_module.html) | Adds the specified character set to the `Content-Type` response header. Can convert data from one character set to another. |
-| [http\_empty\_gif\_module](https://nginx.org/en/docs/http/ngx_http_empty_gif_module.html) | Emits a single-pixel transparent GIF. |
-| [http\_fastcgi\_module](https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html) | Passes requests to a FastCGI server. |
-| [http\_geo\_module](https://nginx.org/en/docs/http/ngx_http_geo_module.html) | Creates variables with values that depend on the client IP address. |
-| [http\_gzip\_module](https://nginx.org/en/docs/http/ngx_http_gzip_module.html) | Compresses responses using gzip, reducing the amount of transmitted data by half or more. |
-| [http\_limit\_conn\_module](https://nginx.org/en/docs/http/ngx_http_limit_conn_module.html) | Limits the number of connections per a defined key, in particular, the number of connections from a single IP address. |
-| [http\_limit\_req\_module](https://nginx.org/en/docs/http/ngx_http_limit_req_module.html) | Limits the request processing rate per a defined key, in particular, the processing rate of requests coming from a single IP address. |
-| [http\_map\_module](https://nginx.org/en/docs/http/ngx_http_map_module.html) | Creates variables whose values depend on the values of other variables. |
-| [http\_memcached\_module](https://nginx.org/en/docs/http/ngx_http_memcached_module.html) | Passes requests to a memcached server. |
-| [http\_proxy\_module](https://nginx.org/en/docs/http/ngx_http_proxy_module.html) | Passes HTTP requests to another server. |
-| [http\_referer\_module](https://nginx.org/en/docs/http/ngx_http_referer_module.html) | Blocks requests with invalid values in the Referer header. |
-| [http\_rewrite\_module](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html) | Changes the request URI using regular expressions and return redirects; conditionally selects configurations. Requires the [PCRE](http://pcre.org/) library. |
-| [http\_scgi\_module](https://nginx.org/en/docs/http/ngx_http_scgi_module.html) | Passes requests to an SCGI server. |
-| [http\_ssi\_module](https://nginx.org/en/docs/http/ngx_http_ssi_module.html) | Processes SSI \(Server Side Includes\) commands in responses passing through it. |
-| [http\_split\_clients\_module](https://nginx.org/en/docs/http/ngx_http_split_clients_module.html) | Creates variables suitable for A/B testing, also known as split testing. |
-| [http\_upstream\_hash\_module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#hash) | Enables the generic Hash load-balancing method. |
-| [http\_upstream\_ip\_hash\_module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#ip_hash) | Enables the IP Hash load-balancing method. |
-| [http\_upstream\_keepalive\_module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#keepalive) | Enables keepalive connections. |
-| [http\_upstream\_least\_conn\_module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#least_conn) | Enables the Least Connections load-balancing method. |
-| [http\_upstream\_zone\_module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#zone) | Enables shared memory zones. |
-| [http\_userid\_module](https://nginx.org/en/docs/http/ngx_http_userid_module.html) | Sets cookies suitable for client identification. |
-| [http\_uwsgi\_module](https://nginx.org/en/docs/http/ngx_http_uwsgi_module.html) | Passes requests to a uwsgi server. |
+| [http_access_module](https://nginx.org/en/docs/http/ngx_http_access_module.html) | 接受或拒绝来自指定客户端地址的请求. |
+| [http_auth_basic_module](https://nginx.org/en/docs/http/ngx_http_auth_basic_module.html) | 通过使用HTTP基本身份验证协议验证用户名和密码来限制对资源的访问. |
+| [http_autoindex_module](https://nginx.org/en/docs/http/ngx_http_autoindex_module.html) | 处理以正斜杠字符(/)结尾的请求并生成目录清单. |
+| [http_browser_module](https://nginx.org/en/docs/http/ngx_http_browser_module.html) | 创建变量，这些变量的值依赖于 `User-Agent` 请求头的值. |
+| [http_charset_module](https://nginx.org/en/docs/http/ngx_http_charset_module.html) | 将指定的字符集添加到 `Content-Type` 响应头。可以将数据从一个字符集转换为另一个字符集. |
+| [http_empty_gif_module](https://nginx.org/en/docs/http/ngx_http_empty_gif_module.html) | 发出单像素透明GIF. |
+| [http_fastcgi_module](https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html) | 转发请求到 FastCGI server. |
+| [http_geo_module](https://nginx.org/en/docs/http/ngx_http_geo_module.html) | 创建具有依赖于客户端IP地址的值的变量. |
+| [http_gzip_module](https://nginx.org/en/docs/http/ngx_http_gzip_module.html) | 使用gzip压缩响应，将传输的数据量减少一半或更多. |
+| [http_limit_conn_module](https://nginx.org/en/docs/http/ngx_http_limit_conn_module.html) | 限制每个已定义键的连接数，特别是来自单个IP地址的连接数. |
+| [http_limit_req_module](https://nginx.org/en/docs/http/ngx_http_limit_req_module.html) | 限制每个已定义键的请求处理速率，特别是来自单个IP地址的请求处理速率. |
+| [http_map_module](https://nginx.org/en/docs/http/ngx_http_map_module.html) | 创建变量，其值依赖于其他变量的值. |
+| [http_memcached_module](https://nginx.org/en/docs/http/ngx_http_memcached_module.html) | 转发请求到 memcached server. |
+| [http_proxy_module](https://nginx.org/en/docs/http/ngx_http_proxy_module.html) | 代理 HTTP 请求到另一个 http server. |
+| [http_referer_module](https://nginx.org/en/docs/http/ngx_http_referer_module.html) | 阻塞`Referer header`中具有无效值的请求. |
+| [http_rewrite_module](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html) | 使用正则表达式更改请求URI并返回重定向;有条件地选择配置. 需要[PCRE](http://pcre.org/)库. |
+| [http_scgi_module](https://nginx.org/en/docs/http/ngx_http_scgi_module.html) | 转发请求到 SCGI server. |
+| [http_ssi_module](https://nginx.org/en/docs/http/ngx_http_ssi_module.html) | 处理通过SSI(包含服务端)命令的响应. |
+| [http_split_clients_module](https://nginx.org/en/docs/http/ngx_http_split_clients_module.html) | 创建适用于 `A/B` 测试（也称为拆分测试）的变量. |
+| [http_upstream_hash_module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#hash) | 启用通用哈希负载平衡方法. |
+| [http_upstream_ip_hash_module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#ip_hash) | 启用IP散列负载平衡方法. |
+| [http_upstream_keepalive_module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#keepalive) | 启用连接保持. |
+| [http_upstream_least_conn_module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#least_conn) | 启用最少连接负载平衡方法. |
+| [http_upstream_zone_module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#zone) | 启用共享内存区域. |
+| [http_userid_module](https://nginx.org/en/docs/http/ngx_http_userid_module.html) | 设置适合于客户端标识的cookie. |
+| [http_uwsgi_module](https://nginx.org/en/docs/http/ngx_http_uwsgi_module.html) | 转发请求到 uwsgi server. |
 
-**Including Modules Not Built by Default**
+**默认情况下不构建的模块** <a id="modules_not_default"></a>
 
-Many NGINX modules are not built by default, and must be listed on the `configure` command line to be built.
+许多NGINX模块默认不构建的，必须在 `configure` 命令行中开启。
 
-The [mail](https://nginx.org/en/docs/mail/ngx_mail_core_module.html), [stream](https://nginx.org/en/docs/stream/ngx_stream_core_module.html), [geoip](https://nginx.org/en/docs/http/ngx_http_geoip_module.html), [image\_filter](https://nginx.org/en/docs/http/ngx_http_image_filter_module.html), [perl](https://nginx.org/en/docs/http/ngx_http_perl_module.html) and [xslt](https://nginx.org/en/docs/http/ngx_http_xslt_module.html) modules can be compiled as dynamic. See [Dynamic Modules](https://docs.nginx.com/nginx/admin-guide/dynamic-modules/dynamic-modules/) for details.
+[mail](https://nginx.org/en/docs/mail/ngx_mail_core_module.html), [stream](https://nginx.org/en/docs/stream/ngx_stream_core_module.html), [geoip](https://nginx.org/en/docs/http/ngx_http_geoip_module.html), [image\_filter](https://nginx.org/en/docs/http/ngx_http_image_filter_module.html), [perl](https://nginx.org/en/docs/http/ngx_http_perl_module.html) 和 [xslt](https://nginx.org/en/docs/http/ngx_http_xslt_module.html) 等模块可以动态编译. 可以从[Dynamic Modules](https://docs.nginx.com/nginx/admin-guide/dynamic-modules/dynamic-modules/)查阅相关信息.
 
-An example of the `configure` command that includes nondefault modules \(should be typed as a single line\):
+一个包含非默认模块的 `configure` 命令示例 (应该作为单行输入):
 
 ```text
 $ ./configure
@@ -649,79 +649,79 @@ $ ./configure
 | **Module Name** | **Description** |
 | :--- | :--- |
 | `--with-cpp_test_module` | Tests the C++ compatibility of header files. |
-| `--with-debug` | Enables the [debugging log](https://docs.nginx.com/nginx/admin-guide/monitoring/debugging/). |
-| `--with-file-aio` | Enables asynchronous I/O. |
-| [\`\`](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#id2)–[\`\`](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#id4)[with-google\_perftools\_module](https://nginx.org/en/docs/ngx_google_perftools_module.html) | Allows using [Google Performance tools](https://github.com/gperftools/gperftools) library. |
-| `--` [with-http\_addition\_module](https://nginx.org/en/docs/http/ngx_http_addition_module.html) | Adds text before and after a response. |
-| `--` [with-http\_auth\_request\_module](https://nginx.org/en/docs/http/ngx_http_auth_request_module.html) | Implements client authorization based on the result of a subrequest. |
-| `--` [with-http\_dav\_module](https://nginx.org/en/docs/http/ngx_http_dav_module.html) | Enables file management automation using the WebDAV protocol. |
-| `--with-http_degradation_module` | Allows returning an error when a memory size exceeds the defined value. |
-| `--` [with-http\_flv\_module](https://nginx.org/en/docs/http/ngx_http_flv_module.html) | Provides pseudo-streaming server-side support for Flash Video \(FLV\) files. |
-| `--` [with-http\_geoip\_module](https://nginx.org/en/docs/http/ngx_http_geoip_module.html) | Enables creating variables whose values depend on the client IP address. The module uses [MaxMind](https://www.maxmind.com/) GeoIP databases. To compile as a separate [dynamic module](https://docs.nginx.com/nginx/admin-guide/dynamic-modules/dynamic-modules/) instead, change the option to –with-http\_geoip\_module=dynamic. |
-| `--` [with-http\_gunzip\_module](https://nginx.org/en/docs/http/ngx_http_gunzip_module.html) | Decompresses responses with Content-Encoding: gzip for clients that do not support the \_zip\_ encoding method. |
-| `--` [with-http\_gzip\_static\_module](https://nginx.org/en/docs/http/ngx_http_gzip_static_module.html) | Allows sending precompressed files with the **.gz** filename extension instead of regular files. |
-| `--` [with-http\_image\_filter\_module](https://nginx.org/en/docs/http/ngx_http_image_filter_module.html) | Transforms images in JPEG, GIF, and PNG formats. The module requires the [LibGD](https://libgd.github.io/) library. To compile as a separate [dynamic module](https://docs.nginx.com/nginx/admin-guide/dynamic-modules/dynamic-modules/) instead, change the option to `--with-http_image_filter_module=dynamic`. |
-| `--` [with-http\_mp4\_module](https://nginx.org/en/docs/http/ngx_http_mp4_module.html) | Provides pseudo-streaming server-side support for MP4 files. |
-| `--` [with-http\_perl\_module](https://nginx.org/en/docs/http/ngx_http_perl_module.html) | Used to implement location and variable handlers in Perl and insert Perl calls into SSI. Requires the [PERL](https://www.perl.org/get.html) library. To compile as a separate [dynamic module](https://docs.nginx.com/nginx/admin-guide/dynamic-modules/dynamic-modules/) instead, change the option to `--with-http_perl_module=dynamic`. |
-| `--` [with-http\_random\_index\_module](https://nginx.org/en/docs/http/ngx_http_random_index_module.html) | Processes requests ending with the slash character \(‘/’\) and picks a random file in a directory to serve as an index file. |
-| `--` [with-http\_realip\_module](https://nginx.org/en/docs/http/ngx_http_realip_module.html) | Changes the client address to the one sent in the specified header field. |
-| `--` [with-http\_secure\_link\_module](https://nginx.org/en/docs/http/ngx_http_secure_link_module.html) | Used to check authenticity of requested links, protect resources from unauthorized access, and limit link lifetime. |
-| `--` [with-http\_slice\_module](https://nginx.org/en/docs/http/ngx_http_slice_module.html) | Allows splitting a request into subrequests, each subrequest returns a certain range of response. Provides more effective caching of large files. |
-| `--` [with-http\_ssl\_module](https://nginx.org/en/docs/http/ngx_http_ssl_module.html) | Enables HTTPS support. Requires an SSL library such as [OpenSSL](https://www.openssl.org/). |
-| `--` [with-http\_stub\_status\_module](https://nginx.org/en/docs/http/ngx_http_stub_status_module.html) | Provides access to basic status information. Note that NGINX Plus customers do not require this module as they are already provided with extended status metrics and interactive dashboard. |
-| `--` [with-http\_sub\_module](https://nginx.org/en/docs/http/ngx_http_sub_module.html) | Modifies a response by replacing one specified string by another. |
-| `--` [with-http\_xslt\_module](https://nginx.org/en/docs/http/ngx_http_xslt_module.html) | Transforms XML responses using one or more XSLT stylesheets. The module requires the [Libxml2](http://xmlsoft.org/) and [XSLT](http://xmlsoft.org/XSLT/) libraries. To compile as a separate [dynamic module](https://docs.nginx.com/nginx/admin-guide/dynamic-modules/dynamic-modules/) instead, change the option to `--with-http_xslt_module=dynamic`. |
-| `--` [with-http\_v2\_module](https://nginx.org/en/docs/http/ngx_http_v2_module.html) | Enable support for [HTTP/2](https://tools.ietf.org/html/rfc7540%29). See [The HTTP/2 Module in NGINX](https://www.nginx.com/blog/http2-module-nginx/) on the NGINX blog for details. |
-| `--` [with-mail](https://nginx.org/en/docs/mail/ngx_mail_core_module.html) | Enables mail proxy functionality. To compile as a separate [dynamic module](https://docs.nginx.com/nginx/admin-guide/dynamic-modules/dynamic-modules/) instead, change the option to `--with-mail=dynamic`. |
-| `--` [with-mail\_ssl\_module](https://nginx.org/en/docs/mail/ngx_mail_ssl_module.html) | Provides support for a mail proxy server to work with the SSL/TLS protocol. Requires an SSL library such as [OpenSSL](https://www.openssl.org/). |
-| `--` [with-stream](https://nginx.org/en/docs/stream/ngx_stream_core_module.html) | Enables the TCP and UDP proxy functionality. To compile as a separate [dynamic module](https://docs.nginx.com/nginx/admin-guide/dynamic-modules/dynamic-modules/) instead, change the option to `--with-stream=dynamic`. |
-| `--` [with-stream\_ssl\_module](https://nginx.org/en/docs/stream/ngx_stream_ssl_module.html) | Provides support for a stream proxy server to work with the SSL/TLS protocol. Requires an SSL library such as [OpenSSL](https://www.openssl.org/). |
-| `--with-threads` | Enables NGINX to use thread pools. For details, see [Thread Pools in NGINX Boost Performance 9x!](https://www.nginx.com/blog/thread-pools-boost-performance-9x/) on the NGINX blog. |
+| `--with-debug` | 开启 [debugging log](https://docs.nginx.com/nginx/admin-guide/monitoring/debugging/). |
+| `--with-file-aio` | 启用 异步I/O. |
+| [--with-google_perftools_module](https://nginx.org/en/docs/ngx_google_perftools_module.html) | 允许使用[Google Performance tools](https://github.com/gperftools/gperftools)库. |
+| [--with-http_addition_module](https://nginx.org/en/docs/http/ngx_http_addition_module.html) | 在响应之前和之后添加文本. |
+| [--with-http_auth_request_module](https://nginx.org/en/docs/http/ngx_http_auth_request_module.html) | 基于子请求的结果实现客户端授权. |
+| [--with-http_dav_module](https://nginx.org/en/docs/http/ngx_http_dav_module.html) | 使用WebDAV协议启用文件管理自动化. |
+| `--with-http_degradation_module` | 允许在内存大小超过定义的值时返回错误. |
+| [--with-http_flv_module](https://nginx.org/en/docs/http/ngx_http_flv_module.html) | 为Flash视频(FLV)文件提供伪流服务器端支持. |
+| [--with-http_geoip_module](https://nginx.org/en/docs/http/ngx_http_geoip_module.html) | 允许创建其值依赖于客户端IP地址的变量。该模块使用[MaxMind](https://www.maxmind.com/) GeoIP 数据库. 要编译为一个单独的 [dynamic module](https://docs.nginx.com/nginx/admin-guide/dynamic-modules/dynamic-modules/) 替代的话, 改为 `--with-http_geoip_module=dynamic`. |
+| [--with-http_gunzip_module](https://nginx.org/en/docs/http/ngx_http_gunzip_module.html) | 对于不支持 _zip_ 编码的客户端，使用 `Content-Encoding: gzip`解压响应. |
+| [--with-http_gzip_static_module](https://nginx.org/en/docs/http/ngx_http_gzip_static_module.html) | 允许发送扩展名为 **.gz** 的预压缩文件，而不是常规文件. |
+| [--with-http_image_filter_module](https://nginx.org/en/docs/http/ngx_http_image_filter_module.html) | 转换JPEG、GIF和PNG格式的图像。需要 [LibGD](https://libgd.github.io/) 库编译成[dynamic module](https://docs.nginx.com/nginx/admin-guide/dynamic-modules/dynamic-modules/) 替代的话, 选项更改为 `--with-http_image_filter_module=dynamic`. |
+| [--with-http_mp4_module](https://nginx.org/en/docs/http/ngx_http_mp4_module.html) | 为MP4文件提供伪流服务器端支持. |
+| [--with-http_perl_module](https://nginx.org/en/docs/http/ngx_http_perl_module.html) | 用于在Perl中实现位置和变量处理程序，并将Perl调用插入到SSI中。该模块需要需要 [PERL](https://www.perl.org/get.html) 库。需要编译成[dynamic module](https://docs.nginx.com/nginx/admin-guide/dynamic-modules/dynamic-modules/) 替代的话, 选项更改为 `--with-http_perl_module=dynamic`. |
+| [--with-http_random_index_module](https://nginx.org/en/docs/http/ngx_http_random_index_module.html) | 处理以斜杠字符(‘/’)结尾的请求，并在目录中选择一个随机文件作为索引文件. |
+| [--with-http_realip_module](https://nginx.org/en/docs/http/ngx_http_realip_module.html) | 将客户端地址更改为在指定头字段中发送的地址. |
+| [--with-http_secure_link_module](https://nginx.org/en/docs/http/ngx_http_secure_link_module.html) | 用于检查请求链接的真实性，保护资源不受未经授权的访问，并限制链接的生存期. |
+| [--with-http_slice_module](https://nginx.org/en/docs/http/ngx_http_slice_module.html) | 允许将请求拆分为子请求，每个子请求返回一定范围的响应。提供更有效的大文件缓存. |
+| [--with-http_ssl_module](https://nginx.org/en/docs/http/ngx_http_ssl_module.html) | 开启 HTTPS 支持. 需要一个SSL库，例如 [OpenSSL](https://www.openssl.org/). |
+| [--with-http_stub_status_module](https://nginx.org/en/docs/http/ngx_http_stub_status_module.html) | 提供对基本状态信息的访问。注意，NGINX Plus客户不需要这个模块，因为他们已经提供了扩展的状态度量和交互式仪表板. |
+| [--with-http_sub_module](https://nginx.org/en/docs/http/ngx_http_sub_module.html) | 通过将一个指定的字符串替换为另一字符串来修改响应. |
+| [--with-http_xslt_module](https://nginx.org/en/docs/http/ngx_http_xslt_module.html) | 使用一个或多个XSLT样式表转换XML响应. 该模块需要 [Libxml2](http://xmlsoft.org/) 和 [XSLT](http://xmlsoft.org/XSLT/) 库。需要编译成 [dynamic module](https://docs.nginx.com/nginx/admin-guide/dynamic-modules/dynamic-modules/) 替代的话, 更改选项为 `--with-http_xslt_module=dynamic`. |
+| [--with-http_v2_module](https://nginx.org/en/docs/http/ngx_http_v2_module.html) | 开启 [HTTP/2](https://tools.ietf.org/html/rfc7540%29)支持. 再NGINX blog上查看 [The HTTP/2 Module in NGINX](https://www.nginx.com/blog/http2-module-nginx/)获取详细信息. |
+| [--with-mail](https://nginx.org/en/docs/mail/ngx_mail_core_module.html) | 开启邮件代理功能. 需要编译为单独的 [dynamic module](https://docs.nginx.com/nginx/admin-guide/dynamic-modules/dynamic-modules/) 替代的话, 选项更改为 `--with-mail=dynamic`. |
+| [--with-mail_ssl_module](https://nginx.org/en/docs/mail/ngx_mail_ssl_module.html) | 提供对邮件代理服务器使用SSL/TLS协议的支持。 需要SSL库，例如 [OpenSSL](https://www.openssl.org/). |
+| [--with-stream](https://nginx.org/en/docs/stream/ngx_stream_core_module.html) | 启用TCP和UDP代理功能。 要将其编译为单独的 [dynamic module](https://docs.nginx.com/nginx/admin-guide/dynamic-modules/dynamic-modules/)替代的话, 更改选项为 `--with-stream=dynamic`. |
+| [--with-stream_ssl_module](https://nginx.org/en/docs/stream/ngx_stream_ssl_module.html) | 提供对使用SSL/TLS协议的流代理服务器的支持。需要一个SSL库，如 [OpenSSL](https://www.openssl.org/). |
+| `--with-threads` | 让NGINX使用线程池. 有关详细信息，请参见NGINX博客上的 [NGINX使用线程池提高性能9倍!](https://www.nginx.com/blog/thread-pools-boost-performance-9x/). |
 
-**Including Third-Party Modules**
+**引入第三方模块** <a id="including-third-party-modules"></a>
 
-You can extend NGINX functionality by compiling NGINX open source with your own module or a third‑party module. Some third‑party modules are listed in the [NGINX Wiki](https://nginx.com/resources/wiki/modules/). Use third‑party modules at your own risk as their stability is not guaranteed.
+你可以通过自己的模块或第三方模块编译NGINX开源来扩展NGINX的功能。一些第三方模块列在[NGINX Wiki](https://nginx.com/resources/wiki/modules/). 使用第三方模块的风险需要自己承担，因为他们的稳定性不能得到保证.
 
-**Statically Linked Modules**
+**静态链接的模块** <a id="statically-linked-modules"></a>
 
-Most modules built into NGINX open source are _statically linked_: they are built into NGINX open source at compile time and are linked to the NGINX binary statically. These modules can be disabled only by recompiling NGINX.
+大多数内置于NGINX开放源码中的模块都是静态链接的:它们在编译时内置于NGINX开放源码中，并静态地链接到NGINX二进制文件。这些模块只能通过重新编译NGINX来禁用。
 
-To compile NGINX open source with a statically linked third‑party module, include the `--add-module=<PATH>` option on the `configure` command, where `<PATH>` is the path to the source code \(this example is for the [RTMP](https://github.com/arut/nginx-rtmp-module) module\):
+要用静态链接的第三方模块编译开源版NGINX, 请在 `configure` 添加上 `--add-module=<PATH>` , 其中 `<PATH>` 是源码的路径 (下面是一个[RTMP](https://github.com/arut/nginx-rtmp-module) 模块的示例):
 
 ```text
 $  ./configure ... --add-module=/usr/build/nginx-rtmp-module
 ```
 
-**Dynamically Linked Modules**
+**动态链接模块** <a id="dynamically-linked-modules"></a>
 
-NGINX modules can also be compiled as a shared object \(**\*.so** file\) and then dynamically loaded into NGINX open source at runtime. This provides more flexibility, as the module can be loaded or unloaded at any time by adding or removing the associated [`load_module`](https://nginx.org/en/docs/ngx_core_module.html#load_module) directive in the NGINX configuration file and reloading the configuration. Note that the module itself must support dynamic linking.
+NGINX模块可以编译为动态链接 (**\*.so** 文件)，然后在运行时动态加载. 这提供了更大的灵活性, 因为可以通过在NGINX中添加或者删除相关的 [`load_module`](https://nginx.org/en/docs/ngx_core_module.html#load_module) 指令来加载和卸载模块，并重新加载配置. 注意模块本身必须支持动态链接.
 
-To compile NGINX open source with a dynamically loaded third‑party module, include the `--add-dynamic-module=<PATH>` option on the `configure` command, where `<PATH>` is the path to the source code:
+要用一个动态加载的第三方模块来编译, `configure` 命令加上 `--add-dynamic-module=<PATH>` , 其中 `<PATH>` 是代码路径:
 
 ```text
 $  ./configure ... --add-dynamic-module=<PATH>
 ```
 
-The resulting **\*.so** files are written to the the _prefix_**/modules/** directory, where the _prefix_ is a directory for server files such as **/usr/local/nginx/**.
+生成的 **\*.so** 文件会被写入到 _prefix_**/modules/** 路径里, _prefix_ 是server文件，例如 **/usr/local/nginx/**.
 
-To load a dynamic module, add the [`load_module`](https://nginx.org/en/docs/ngx_core_module.html#load_module) directive to the NGINX configuration after installation:
+要加载动态模块，请在安装后将[`load_module`](https://nginx.org/en/docs/ngx_core_module.html#load_module)指令添加到nginx配置文件中:
 
 ```text
 load_module modules/ngx_mail_module.so;
 ```
 
-For more information, see [Compiling Third‑Party Dynamic Modules for NGINX and NGINX Plus](https://www.nginx.com/blog/compiling-dynamic-modules-nginx-plus/) on the NGINX blog and [Extending NGINX](https://nginx.com/resources/wiki/extending/) in the Wiki.
+更多信息可以查看 [在NGINX and NGINX Plus编译第三方动态模块](https://www.nginx.com/blog/compiling-dynamic-modules-nginx-plus/) on the NGINX blog and [扩展NGINX](https://nginx.com/resources/wiki/extending/) in the Wiki.
 
-#### Completing the Installation from Source
+#### 从源码完成安装 <a id="install_complete"></a>
 
-* Compile and install the build:
+* 编译并安装构建:
 
   ```text
   $ make
   $ sudo make install
   ```
 
-* After the installation is finished, start NGINX open source:
+* 完成安装后启动开源版NGINX:
 
   ```text
   $ sudo nginx
