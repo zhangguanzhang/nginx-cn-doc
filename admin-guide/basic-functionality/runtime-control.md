@@ -1,35 +1,33 @@
 ---
-description: >-
-  This section describes the processes that NGINX starts at run time and how to
-  control them.
+description: 本节描述NGINX在运行时启动的过程以及如何控制它们.
 ---
 
 # Controlling NGINX Processes at Runtime
 
 ### Master and Worker Processes
 
-NGINX has one master process and one or more worker processes. If [caching](https://docs.nginx.com/nginx/admin-guide/content-cache/content-caching/) is enabled, the cache loader and cache manager processes also run at startup.
+NGINX具有一个主进程和一个或多个工作进程. 如果[caching](https://docs.nginx.com/nginx/admin-guide/content-cache/content-caching/)被开启, 则缓存加载器和缓存管理器进程也会在启动时运行.
 
-The main purpose of the master process is to read and evaluate configuration files, as well as maintain the worker processes.
+主进程的主要目的是读取和评估配置文件，以及维护工作进程.
 
-The worker processes do the actual processing of requests. NGINX relies on OS-dependent mechanisms to efficiently distribute requests among worker processes. The number of worker processes is defined by the [`worker_processes`](https://nginx.org/en/docs/ngx_core_module.html#worker_processes) directive in the **nginx.conf** configuration file and can either be set to a fixed number or configured to adjust automatically to the number of available CPU cores.
+工作进程执行请求的实际处理。 NGINX依赖于操作系统相关的机制来有效地在工作进程之间分配请求。 辅助进程的数量由 **nginx.conf** 配置文件中的 [`worker_processes`](https://nginx.org/en/docs/ngx_core_module.html#worker_processes)定义， 并且可以设置为固定数量或配置为自动调整为可用的CPU内核数量.
 
 ### Controlling NGINX
 
-To reload your configuration, you can stop or restart NGINX, or send signals to the master process. A signal can be sent by running the `nginx` command \(invoking the NGINX executable\) with the `-s` argument.
+要重新加载配置，您可以停止或重新启动NGINX，或向主进程发送信号。 可以通过运行带有 `-s` 参数的 `nginx` 命令（调用NGINX可执行文件）来发送信号。
 
 ```text
 nginx -s <SIGNAL>
 ```
 
- `<SIGNAL>` 处可为下列值:
+ `<SIGNAL>` 可为下列值:
 
-* `quit` – Shut down gracefully
-* `reload` – Reload the configuration file
-* `reopen` – Reopen log files
-* `stop` – Shut down immediately \(fast shutdown\)
+* `quit` – 优雅关闭
+* `reload` – 重新加载配置文件
+* `reopen` – 重新打开日志文件
+* `stop` – 立即关闭(快速关闭)
 
-The `kill` utility can also be used to send a signal directly to the master process. The process ID of the master process is written, by default, to the **nginx.pid** file, which is located in the **/usr/local/nginx/logs** or **/var/run** directory.
+还可以用`kill`直接向主进程发送信号。主进程的进程ID在默认情况下写入**nginx。pid**文件，它位于 **/usr/local/nginx/logs** 或 **/var/run** 目录中。
 
-For more information about advanced signals \(for performing live binary upgrades, for example\), see [Controlling nginx](https://nginx.org/en/docs/control.html) at **nginx.org**.
+有关高级信号（例如，执行实时二进制升级）的更多信息，请参阅位于 **nginx.org** 的[Controlling nginx](https://nginx.org/en/docs/control.html).
 

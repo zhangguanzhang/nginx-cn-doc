@@ -11,7 +11,7 @@
   * [Installing NGINX Plus on the Google Cloud Platform](admin-guide/installing-nginx/installing-nginx-plus-on-the-google-cloud-platform.md)
   * [Installing NGINX Plus on Microsoft Azure](admin-guide/installing-nginx/installing-nginx-plus-on-microsoft-azure.md)
   * [Deploying NGINX and NGINX Plus on Docker](admin-guide/installing-nginx/deploying-nginx-and-nginx-plus-on-docker.md)
-* [Basic Functionality](admin-guide/basic-functionality/README.md)
+* Basic Functionality
   * [Controlling NGINX Processes at Runtime](admin-guide/basic-functionality/runtime-control.md)
   * [Creating NGINX Plus and NGINX Configuration Files](admin-guide/basic-functionality/managing-configuration-files.md)
 * [Load Balancer](admin-guide/load-balancer/README.md)
